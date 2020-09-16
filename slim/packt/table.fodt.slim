@@ -6,8 +6,8 @@ table:table table:name="table" table:style-name="tableblock"
     - @rows[tblsec].each do |row|
       table:table-row
         - row.each do |cell|
-          - if cell.attributes['role'] == "tdu"
-            table:table-cell table:style-name="Table2.A1" table:number-columns-spanned="#{cell.colspan}" table:number-rows-spanned="#{cell.rowspan}"
+          - if role != "form"
+            table:table-cell table:style-name="Table3.A1" table:number-columns-spanned="#{cell.colspan}" table:number-rows-spanned="#{cell.rowspan}"
               - if tblsec == :head
                 text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
                   =cell.text
@@ -22,7 +22,24 @@ table:table table:name="table" table:style-name="tableblock"
                 - else
                   text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
                     =cell.text
-          - else
+          - if role == "form" && cell.attributes['role'] == "tdu"
+            table:table-cell table:style-name="Table2.A1" table:number-columns-spanned="#{cell.colspan}" table:number-rows-spanned="#{cell.rowspan}"
+              - if tblsec == :head
+                text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
+                  =cell.text
+              - else
+                - case cell.attributes['halign']
+                - when "left"
+                  text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
+                    text:span text:style-name="T2"
+                      =cell.text
+                - when "right"
+                  text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
+                    =cell.text
+                - else
+                  text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
+                    =cell.text
+          - if role == "form" && cell.attributes['role'] != "tdu"
             table:table-cell table:style-name="Table1.A1" table:number-columns-spanned="#{cell.colspan}" table:number-rows-spanned="#{cell.rowspan}"
               - if tblsec == :head
                 text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
@@ -31,7 +48,8 @@ table:table table:name="table" table:style-name="tableblock"
                 - case cell.attributes['halign']
                 - when "left"
                   text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
-                    =cell.text
+                    text:span text:style-name="T2"
+                      =cell.text
                 - when "right"
                   text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
                     =cell.text
