@@ -1,5 +1,14 @@
-- if role.include? "text-center"
+- if role.nil? or role.empty?
+  text:p text:style-name="Normal_20_5b_PACKT_5d_"
+    =content
+- elsif role.include? "text-center" and role.include? "psize-130"
+  text:p text:style-name="Normal_Center_Size130_20_5b_PACKT_5d_"
+    =content
+- elsif role.include? "text-center" and !role.include? "psize-130"
   text:p text:style-name="Normal_Center_20_5b_PACKT_5d_"
+    =content
+- elsif !role.include? "text-center" and role.include? "psize-130"
+  text:p text:style-name="Normal_Size130_20_5b_PACKT_5d_"
     =content
 - else
   text:p text:style-name="Normal_20_5b_PACKT_5d_"
