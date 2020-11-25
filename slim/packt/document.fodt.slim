@@ -46,8 +46,6 @@ office:document(
     - [:author, :email, :version].each do |key|
       - if attr? key
         meta:user-defined meta:name=key =(attr key)
-    - if content.include? "[.pages-total]"
-      meta:document-statistic meta:page-count="#{(content.gsub('<', ''))[(content.gsub('<', '').index('[.pages-total]') + '[.pages-total]'.length)..(content.gsub('<', '').index(/\s/, content.gsub('<', '').index('[.pages-total]') + '[.pages-total]'.length) - 1)].gsub(/[\D]+/, '')}"
   office:scripts
     office:event-listeners
       - if attr? :toc
