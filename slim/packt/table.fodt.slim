@@ -1,4 +1,4 @@
-table:table table:name="table" table:style-name="Table1"
+table:table table:name="table" table:style-name="#{((attr :tablepcwidth) == 100) ? 'Table1' : 'Table11'}"
   - @columns.each do |col|
     table:table-column table:style-name="Table1.A"
   / I don't really know what the follow row does.
