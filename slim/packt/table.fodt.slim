@@ -208,49 +208,97 @@ table:table table:name="table" table:style-name="#{((attr :tablepcwidth) == 100)
           - if role != "form"
             table:table-cell table:style-name="Table3.A1" table:number-columns-spanned="#{(cell.colspan != nil && cell.colspan > 1) ? cell.colspan : 1}" table:number-rows-spanned="#{(cell.rowspan != nil && cell.rowspan > 1) ? cell.rowspan : 1}"
               - if tblsec == :head
-                text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
-                  =cell.text
+                - case cell.style
+                - when :asciidoc
+                  =cell.content
+                - else
+                  text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
+                    =cell.text
               - else
                 - case cell.attributes['halign']
                 - when "left"
-                  text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
+                      =cell.text
                 - when "right"
-                  text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
+                      =cell.text
                 - else
-                  text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
+                      =cell.text
           - if role == "form" && cell.attributes['role'] == "tdu"
             table:table-cell table:style-name="Table2.A1" table:number-columns-spanned="#{(cell.colspan != nil && cell.colspan > 1) ? cell.colspan : 1}" table:number-rows-spanned="#{(cell.rowspan != nil && cell.rowspan > 1) ? cell.rowspan : 1}"
               - if tblsec == :head
-                text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
-                  =cell.text
+                - case cell.style
+                - when :asciidoc
+                  =cell.content
+                - else
+                  text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
+                    =cell.text
               - else
                 - case cell.attributes['halign']
                 - when "left"
-                  text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
-                   =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
+                      =cell.text
                 - when "right"
-                  text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
+                      =cell.text
                 - else
-                  text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
+                      =cell.text
           - if role == "form" && cell.attributes['role'] != "tdu"
             table:table-cell table:style-name="Table1.A1" table:number-columns-spanned="#{(cell.colspan != nil && cell.colspan > 1) ? cell.colspan : 1}" table:number-rows-spanned="#{(cell.rowspan != nil && cell.rowspan > 1) ? cell.rowspan : 1}"
               - if tblsec == :head
-                text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
-                  =cell.text
+                - case cell.style
+                - when :asciidoc
+                  =cell.content
+                - else
+                  text:p text:style-name="Table_20_Column_20_Heading_20_5b_PACKT_5d_"
+                    =cell.text
               - else
                 - case cell.attributes['halign']
                 - when "left"
-                  text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Left_20_5b_PACKT_5d_"
+                      =cell.text
                 - when "right"
-                  text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_Right_20_5b_PACKT_5d_"
+                      =cell.text
                 - else
-                  text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
-                    =cell.text
+                  - case cell.style
+                  - when :asciidoc
+                    =cell.content
+                  - else
+                    text:p text:style-name="Table_20_Column_20_Content_20_5b_PACKT_5d_"
+                      =cell.text
 

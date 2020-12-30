@@ -5,7 +5,3 @@ text:p text:style-name="imageblock"
         - require 'base64'
         - enc = Base64.encode64(open(attr :target) { |io| io.read })
         =enc
-text:p text:style-name="Layout_20_Information_20_5b_PACKT_5d_"
-  - require 'pathname'
-  - basename = Pathname.new(attr :target).basename
-  |Insert image #{basename}
