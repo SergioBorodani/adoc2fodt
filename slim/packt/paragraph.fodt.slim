@@ -10,6 +10,8 @@
 - elsif !role.include? "text-center" and role.include? "psize-130"
   text:p text:style-name="Normal_Size130_20_5b_PACKT_5d_"
     =content
+- elsif role.include? "first-page"
+  text:p text:style-name="FP1"
 - else
   text:p text:style-name="Normal_20_5b_PACKT_5d_"
     =content

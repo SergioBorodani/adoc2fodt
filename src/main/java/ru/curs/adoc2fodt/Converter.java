@@ -140,6 +140,13 @@ public class Converter {
                 }
                 FileUtils.copyInputStreamToFile(src, dest.toFile());
 
+//                src = new ClassPathResource("/layout-cache").getInputStream();
+//                dest = Paths.get(zipDirectoryPath + "/layout-cache");
+//                if (dest.toFile().exists()) {
+//                    FileUtils.forceDelete(dest.toFile());
+//                }
+//                FileUtils.copyInputStreamToFile(src, dest.toFile());
+
                 src = new ClassPathResource("/settings.xml").getInputStream();
                 dest = Paths.get(zipDirectoryPath + "/settings.xml");
                 if (dest.toFile().exists()) {
@@ -165,6 +172,13 @@ public class Converter {
                     FileUtils.forceDelete(dest.toFile());
                 }
                 FileUtils.copyInputStreamToFile(src, dest.toFile());
+
+//                src = new ClassPathResource("/Configurations2/accelerator/current.xml").getInputStream();
+//                dest = Paths.get(zipDirectoryPath + "/Configurations2/accelerator/current.xml");
+//                if (dest.toFile().exists()) {
+//                    FileUtils.forceDelete(dest.toFile());
+//                }
+//                FileUtils.copyInputStreamToFile(src, dest.toFile());
 
                 String sourceFile = zipDirectoryPath;
                 FileOutputStream fos = new FileOutputStream(adocFilePathWithoutExtension + ".odt");
